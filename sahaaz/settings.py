@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 import django_heroku
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,7 +27,7 @@ SECRET_KEY = 'django-insecure-s$zurgg0hl%^mgfh5$o$y2l8#d6o1e+pc28uazm%4hga7m9u(t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sahaaz.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -78,15 +79,16 @@ WSGI_APPLICATION = 'sahaaz.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'dd3utdaii0m22r',
-#         'USER': 'oyrihvshmidmja',
-#         'PASSWORD': '9c67c6c815ac0ff3c9c6a01f8ce1c126ee921360e590c09acdf8655d0c5b8ebd@123',
-#         'HOST': 'ec2-35-174-122-153.compute-1.amazonaws.com'
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dd3utdaii0m22r',
+        'USER': 'oyrihvshmidmja',
+        'PASSWORD': '9c67c6c815ac0ff3c9c6a01f8ce1c126ee921360e590c09acdf8655d0c5b8ebd',
+        'HOST': 'ec2-35-174-122-153.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}
 
 
 # Password validation
@@ -127,7 +129,7 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
