@@ -1,7 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import HelloWorld
-
+from .views import (VerifyPhoneNumberAPIVIEW)
 urlpatterns = [
-    path('hello/', HelloWorld.as_view(), name='hello'),
+    path("verifyPhone/<phone>/", VerifyPhoneNumberAPIVIEW.as_view(), name="verify phone number"),
 ]
