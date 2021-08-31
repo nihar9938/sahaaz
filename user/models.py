@@ -1,7 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import PermissionsMixin
+from django.contrib.auth.models import AbstractBaseUser
 
 # Create your models here.
-# this model Stores the data of the Phones Verified
 
 
 class PhoneModel(models.Model):
